@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5fcgdg2qyfhy"]
+
+[ext_resource type="FontFile" uid="uid://bvnjpnifyvivx" path="res://src/fonts/MorePerfectDOSVGA.ttf" id="1_xone2"]
+
+[node name="Input" type="Label"]
+theme_override_colors/font_color = Color(0, 0.47058824, 0, 1)
+theme_override_fonts/font = ExtResource("1_xone2")
+theme_override_font_sizes/font_size = 20
+text = "user submit"

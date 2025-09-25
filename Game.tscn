@@ -1,0 +1,180 @@
+[gd_scene load_steps=14 format=3 uid="uid://qn46i17nt001"]
+
+[ext_resource type="Script" uid="uid://dl47l6ou0sx4m" path="res://Game.gd" id="1_u44n3"]
+[ext_resource type="Script" uid="uid://cwoikpxj8in8r" path="res://Input.gd" id="1_wbfu4"]
+[ext_resource type="FontFile" uid="uid://bvnjpnifyvivx" path="res://src/fonts/MorePerfectDOSVGA.ttf" id="1_xkndl"]
+[ext_resource type="Texture2D" uid="uid://dmdvcoxvqxdk4" path="res://src/img/doll.png" id="2_sb48q"]
+[ext_resource type="PackedScene" uid="uid://cgk4pa5vu2m05" path="res://Room.tscn" id="3_r0x5m"]
+[ext_resource type="Script" uid="uid://jfbpsllobjh7" path="res://CommandManager.gd" id="5_t88pq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ubv3"]
+bg_color = Color(0.056291588, 0.05629161, 0.05629155, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wbfu4"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.78431374, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u44n3"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.78431374, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xkndl"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.78431374, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ubv3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xkndl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wbfu4"]
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u44n3")
+
+[node name="CommandManager" type="Node" parent="."]
+script = ExtResource("5_t88pq")
+
+[node name="RoomManager" type="Node" parent="."]
+
+[node name="House" parent="RoomManager" instance=ExtResource("3_r0x5m")]
+room_name = "House"
+room_description = "This is the description of the house"
+
+[node name="Background" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6ubv3")
+
+[node name="MarginContainer" type="MarginContainer" parent="Background"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Rows" type="VBoxContainer" parent="Background/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="GameInfo" type="PanelContainer" parent="Background/MarginContainer/Rows"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_wbfu4")
+
+[node name="MarginContainer" type="MarginContainer" parent="Background/MarginContainer/Rows/GameInfo"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/MarginContainer/Rows/GameInfo/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="History" type="PanelContainer" parent="Background/MarginContainer/Rows/GameInfo/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_u44n3")
+
+[node name="MarginContainer" type="MarginContainer" parent="Background/MarginContainer/Rows/GameInfo/MarginContainer/HBoxContainer/History"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Background/MarginContainer/Rows/GameInfo/MarginContainer/HBoxContainer/History/MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="Logs" type="VBoxContainer" parent="Background/MarginContainer/Rows/GameInfo/MarginContainer/HBoxContainer/History/MarginContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="View" type="PanelContainer" parent="Background/MarginContainer/Rows/GameInfo/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_u44n3")
+
+[node name="MarginContainer" type="MarginContainer" parent="Background/MarginContainer/Rows/GameInfo/MarginContainer/HBoxContainer/View"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="TextureRect" type="TextureRect" parent="Background/MarginContainer/Rows/GameInfo/MarginContainer/HBoxContainer/View/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_sb48q")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="CharacterInfo" type="PanelContainer" parent="Background/MarginContainer/Rows/GameInfo/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_u44n3")
+
+[node name="InputArea" type="PanelContainer" parent="Background/MarginContainer/Rows"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xkndl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Background/MarginContainer/Rows/InputArea"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/MarginContainer/Rows/InputArea/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Background/MarginContainer/Rows/InputArea/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.78431374, 0, 1)
+theme_override_fonts/font = ExtResource("1_xkndl")
+theme_override_font_sizes/font_size = 20
+text = ">"
+
+[node name="Input" type="LineEdit" parent="Background/MarginContainer/Rows/InputArea/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0.78431374, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0.78431374, 0, 0.6)
+theme_override_colors/caret_color = Color(0, 0.78431374, 0, 1)
+theme_override_constants/caret_width = 10
+theme_override_fonts/font = ExtResource("1_xkndl")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6ubv3")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_xkndl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wbfu4")
+placeholder_text = "Type your command here"
+max_length = 40
+keep_editing_on_text_submit = true
+caret_blink = true
+script = ExtResource("1_wbfu4")
+
+[connection signal="text_submitted" from="Background/MarginContainer/Rows/InputArea/MarginContainer/HBoxContainer/Input" to="." method="_on_input_text_submitted"]
+[connection signal="text_submitted" from="Background/MarginContainer/Rows/InputArea/MarginContainer/HBoxContainer/Input" to="Background/MarginContainer/Rows/InputArea/MarginContainer/HBoxContainer/Input" method="_on_text_submitted"]

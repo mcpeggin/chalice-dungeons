@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf10mhuxbatge"]
+
+[ext_resource type="FontFile" uid="uid://bvnjpnifyvivx" path="res://src/fonts/MorePerfectDOSVGA.ttf" id="1_k8tiy"]
+
+[node name="Response" type="Label"]
+custom_minimum_size = Vector2(300, 0)
+theme_override_colors/font_color = Color(0, 0.78431374, 0, 1)
+theme_override_fonts/font = ExtResource("1_k8tiy")
+theme_override_font_sizes/font_size = 20
+text = "game response"
+autowrap_mode = 2

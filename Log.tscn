@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://tpfbdm5qbpn4"]
+
+[ext_resource type="Script" uid="uid://bod4mgpgrdeqe" path="res://Log.gd" id="1_pyy8n"]
+[ext_resource type="PackedScene" uid="uid://c5fcgdg2qyfhy" path="res://Input.tscn" id="2_preuk"]
+[ext_resource type="PackedScene" uid="uid://cf10mhuxbatge" path="res://Response.tscn" id="3_preuk"]
+
+[node name="Log" type="VBoxContainer"]
+offset_right = 147.0
+offset_bottom = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_pyy8n")
+
+[node name="Input" parent="." instance=ExtResource("2_preuk")]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+autowrap_mode = 2
+
+[node name="Response" parent="." instance=ExtResource("3_preuk")]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
