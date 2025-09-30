@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="NPC" load_steps=3 format=3 uid="uid://5ucg4njtiddw"]
+
+[ext_resource type="Script" uid="uid://b2fggdx4er4xf" path="res://npcs/NPC.gd" id="1_ce8wx"]
+[ext_resource type="Resource" uid="uid://vk656esphscf" path="res://items/Medicine.tres" id="1_evhte"]
+
+[resource]
+script = ExtResource("1_ce8wx")
+name = "GraveyardNPC"
+initial_dialog = "Go to the house, get me some Medicine and go back."
+post_quest_dialog = "Such a good boy, do you always do what you've been told? Here' the key to the shed."
+quest_item = ExtResource("1_evhte")
+metadata/_custom_type_script = "uid://b2fggdx4er4xf"

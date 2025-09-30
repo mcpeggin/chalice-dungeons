@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://df1nvsyfpdbvx"]
+
+[ext_resource type="Script" uid="uid://bl2q4htxaxo0v" path="res://items/Item.gd" id="1_2iida"]
+
+[resource]
+script = ExtResource("1_2iida")
+name = "A shed key"
+metadata/_custom_type_script = "uid://bl2q4htxaxo0v"

@@ -15,6 +15,10 @@ run/main_scene="uid://qn46i17nt001"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Types="*res://globals/Types.gd"
+
 [input]
 
 end_session={

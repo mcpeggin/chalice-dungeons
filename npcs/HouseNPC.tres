@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="NPC" load_steps=2 format=3 uid="uid://c1irfwjpfm8xr"]
+
+[ext_resource type="Script" uid="uid://b2fggdx4er4xf" path="res://npcs/NPC.gd" id="1_weulu"]
+
+[resource]
+script = ExtResource("1_weulu")
+name = "HouseNPC"
+initial_dialog = "Here's the medicine fo the GraveyardNPC"
+metadata/_custom_type_script = "uid://b2fggdx4er4xf"
