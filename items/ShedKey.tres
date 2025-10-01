@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_2iida")
-name = "A shed key"
+name = "shedKey"
 metadata/_custom_type_script = "uid://bl2q4htxaxo0v"

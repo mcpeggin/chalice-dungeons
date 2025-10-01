@@ -130,7 +130,11 @@ func give(second_word: String) -> String:
 	for npc in current_room.npcs:
 		if npc.quest_item != null and second_word.to_lower() == npc.quest_item.name.to_lower():
 			npc.is_quest_item_received = true
-			player.drop_item(second_word)
+			if npc.quest_reward != null:
+				player.pickup(npc.quest_reward)
+			for item in player.inventory:
+				if second_word.to_lower() == item.name.to_lower():
+					player.drop_item(item)
 			return "You give the %s to the %s" % [second_word, npc.name]
 	
 	return "That item belongs to no one here."

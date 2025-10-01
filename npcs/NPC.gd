@@ -9,3 +9,4 @@ class_name NPC
 @export var quest_item: Item
 
 var is_quest_item_received: bool = false
+@export var quest_reward: Item

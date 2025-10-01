@@ -23,6 +23,7 @@ func _ready() -> void:
 	
 	var shedKey = load_item("ShedKey")
 	$Graveyard.add_item(shedKey)
+	graveyardNPC.quest_reward = shedKey
 	shedKey.use_value = shedExit
 
 # helpers

@@ -26,7 +26,7 @@ func _ready() -> void:
 	# first message on launch
 	create_response('Welcome!\n\n' + HELP)
 	
-	var starting_room = room_manager.get_child(0)
+	var starting_room = room_manager.get_child(1)
 	var starting_room_response = command_manager.init(starting_room, player)
 	
 	image.texture = starting_room.room_texture
