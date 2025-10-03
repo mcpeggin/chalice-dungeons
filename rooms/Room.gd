@@ -60,7 +60,7 @@ func get_full_description() -> String:
 	return full_sescription
 
 func get_room_description() -> String:
-	return "You are now in: " + room_name + "\nIt is " + room_description
+	return "You are now in: " + Types.color_text(room_name, Types.COLOR_LOCATION) + "\n\nIt is " + room_description
 	
 func get_item_description() -> String:
 	
@@ -75,7 +75,8 @@ func get_item_description() -> String:
 	
 func get_exit_description() -> String:
 	var exits = PackedStringArray(exits.keys())
-	return "Exits: " + ", ".join(exits)
+	var joined_exits = ", ".join(exits)
+	return "Exits: " + Types.color_text(joined_exits, Types.COLOR_LOCATION)
 
 func get_npc_description() -> String:
 	
@@ -86,7 +87,7 @@ func get_npc_description() -> String:
 	for npc in npcs:
 		npcs_str += npc.name + " "
 	
-	return "NPCs to talk to: " + npcs_str
+	return "NPCs to talk to: " + Types.color_text(npcs_str, Types.COLOR_NPC)
 
 func add_item(item: Item):
 	items.append(item)
