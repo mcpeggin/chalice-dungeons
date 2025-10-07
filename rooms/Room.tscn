@@ -36,11 +36,10 @@ theme_override_font_sizes/font_size = 24
 text = "Room Name"
 horizontal_alignment = 1
 
-[node name="Description" type="Label" parent="MarginContainer/Rows"]
+[node name="Description" type="RichTextLabel" parent="MarginContainer/Rows"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0.78431374, 0, 1)
-theme_override_fonts/font = ExtResource("1_gw2vq")
-theme_override_font_sizes/font_size = 16
+bbcode_enabled = true
 text = "The description of the room"
+fit_content = true
 autowrap_mode = 2

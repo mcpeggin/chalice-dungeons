@@ -6,8 +6,8 @@ func _ready() -> void:
 	# connect_func locked || unlocked 
 	# ( default dir, exit location, alternative dir for exit)
 	
-	var houseNPC = load_npc("HouseNPC")
-	$House.connect_exit_unlocked("east", $Forest, "forest")
+	var houseNPC = load_npc("Doll")
+	$House.connect_exit_unlocked("east", $Forest, "forest") 
 	var medicine = load_item("Medicine")
 	$House.add_item(medicine)
 	$House.add_npc(houseNPC)
@@ -17,7 +17,7 @@ func _ready() -> void:
 	$Forest.connect_exit_unlocked("west", $House, "house")
 	$Forest.connect_exit_unlocked("south", $Graveyard, "graveyard")
 	
-	var graveyardNPC = load_npc("GraveyardNPC")
+	var graveyardNPC = load_npc("Nun")
 	$Graveyard.add_npc(graveyardNPC)
 	$Graveyard.connect_exit_unlocked("north", $Forest, "forest")
 	

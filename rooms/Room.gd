@@ -71,12 +71,22 @@ func get_item_description() -> String:
 	for item in items:
 		item_str += item.name + " "
 	
-	return "Items: " + item_str
-	
+	return "Items: " + Types.color_text(item_str, Types.COLOR_ITEM)
+
+func _is_direction(name: String) -> bool:
+	var directions = ["north", "south", "east", "west", "path", "inside", "outside"]
+	return directions.has(name.to_lower())
+
 func get_exit_description() -> String:
-	var exits = PackedStringArray(exits.keys())
-	var joined_exits = ", ".join(exits)
-	return "Exits: " + Types.color_text(joined_exits, Types.COLOR_LOCATION)
+	var colored_exits: Array = []
+	for exit_name in exits.keys():
+		if _is_direction(exit_name):
+			colored_exits.append(Types.color_text(exit_name, Types.COLOR_DIRECTION))
+		else:
+			colored_exits.append(Types.color_text(exit_name, Types.COLOR_LOCATION))
+	
+	var joined = ", ".join(colored_exits)
+	return "Exits: " + joined
 
 func get_npc_description() -> String:
 	
@@ -114,26 +124,27 @@ func _connect_exit(direction: String, room, is_locked: bool = false, room_2_over
 	exit.room_1 = self
 	exit.room_2 = room
 	exit.is_locked = is_locked
+	
 	exits[direction] = exit
 	
 	if room_2_override_name != "null":
 		exits[room_2_override_name] = exit
-	else:
-		match direction:
-			"west":
-				room.exits["east"] = exit
-			"east":
-				room.exits["west"] = exit
-			"north":
-				room.exits["south"] = exit
-			"south":
-				room.exits["north"] = exit
-			"path":
-				room.exits["path"] = exit
-			"inside":
-				room.exits["outside"] = exit
-			"outside":
-				room.exits["inside"] = exit
-			_:
-				print("error connect_exit", direction)
+		
+	match direction:
+		"west":
+			room.exits["east"] = exit
+		"east":
+			room.exits["west"] = exit
+		"north":
+			room.exits["south"] = exit
+		"south":
+			room.exits["north"] = exit
+		"path":
+			room.exits["path"] = exit
+		"inside":
+			room.exits["outside"] = exit
+		"outside":
+			room.exits["inside"] = exit
+		_:
+			print("error connect_exit", direction)
 	return exit

@@ -55,7 +55,7 @@ script = ExtResource("3_3mrqo")
 offset_top = -718.0
 offset_bottom = -468.0
 room_name = "a House"
-room_description = "an abandaned house. There's a door east of you."
+room_description = "an abandaned [color=#EE82EE]house[/color]. There's a door [color=#4169E1]east[/color] of you."
 room_texture = ExtResource("6_yhmtn")
 npc_texture = ExtResource("2_sb48q")
 
@@ -65,7 +65,7 @@ offset_top = -720.0
 offset_right = 542.0
 offset_bottom = -470.0
 room_name = "Forest"
-room_description = "a thick forest. The old shed is in the north. The abandoned house is in the west."
+room_description = "a thick [color=#EE82EE]forest[/color]. The old [color=#EE82EE]shed[/color] is in the [color=#4169E1]north[/color]. The abandoned [color=#EE82EE]house[/color] is in the [color=#4169E1]west[/color]."
 room_texture = ExtResource("7_gwjdr")
 
 [node name="Shed" parent="RoomManager" instance=ExtResource("3_r0x5m")]
@@ -76,7 +76,7 @@ offset_bottom = -739.0
 room_name = "Shed"
 room_description = "a dusty old shed. There's an exit south of you."
 room_texture = ExtResource("8_yx171")
-npc_texture = ExtResource("10_lvtmh")
+npc_texture = ExtResource("12_yyih5")
 
 [node name="Graveyard" parent="RoomManager" instance=ExtResource("3_r0x5m")]
 offset_left = 293.0
@@ -86,7 +86,7 @@ offset_bottom = -193.0
 room_name = "Graveyard"
 room_description = "a glomy graveyard"
 room_texture = ExtResource("9_yhmtn")
-npc_texture = ExtResource("12_yyih5")
+npc_texture = ExtResource("10_lvtmh")
 
 [node name="Background" type="PanelContainer" parent="."]
 layout_mode = 1

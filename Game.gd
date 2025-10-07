@@ -9,10 +9,9 @@ extends Control
 func _ready() -> void:
 	get_window().grab_focus()
 	
-	var HELP = "Type 'help' anytime to see the available commands."
-	# first message on launch
-	var colored_help = Types.color_text(HELP, Types.COLOR_SYSTEM)
-	game_info.create_response('Welcome!\n\n' + colored_help)
+	var welcome_text = "Welcome!\n\nGo to the " + Types.color_text("shed ", Types.COLOR_LOCATION) + Types.color_text("north ", Types.COLOR_DIRECTION) + "of here."
+	
+	game_info.create_response(welcome_text)
 	
 	var starting_room = room_manager.get_child(1)
 	
@@ -24,7 +23,7 @@ func _ready() -> void:
 	game_info.image.texture = starting_room.room_texture
 	game_info.npc.texture = starting_room.npc_texture
 	
-	game_info.create_response(starting_room_response)
+	# game_info.create_response(starting_room_response)
 
 func _on_input_text_submitted(new_text: String) -> void:
 	if new_text.is_empty():

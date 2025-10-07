@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="NPC" load_steps=4 format=3 uid="uid://5ucg4njtiddw"]
+
+[ext_resource type="Resource" uid="uid://vk656esphscf" path="res://items/Medicine.tres" id="1_tpw1q"]
+[ext_resource type="Resource" uid="uid://df1nvsyfpdbvx" path="res://items/ShedKey.tres" id="2_04pbi"]
+[ext_resource type="Script" uid="uid://b2fggdx4er4xf" path="res://npcs/NPC.gd" id="3_81hqt"]
+
+[resource]
+script = ExtResource("3_81hqt")
+name = "Nun"
+initial_dialog = "Go to the [color=#EE82EE]house[/color], get me some [color=#800080]Medicine[/color] and go back."
+post_quest_dialog = "Such a good boy, do you always do what you've been told? Here' the [color=#800080]key[/color] to the [color=#EE82EE]shed[/color]. Take it."
+quest_item = ExtResource("1_tpw1q")
+quest_reward = ExtResource("2_04pbi")
+metadata/_custom_type_script = "uid://b2fggdx4er4xf"

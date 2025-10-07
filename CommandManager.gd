@@ -35,6 +35,10 @@ func process_command(input: String) -> String:
 			return talk(second_word)
 		"give":
 			return give(second_word)
+		"inspect":
+			return inspect(second_word)
+		"win":
+			return win(second_word)
 		"inventory", "i":
 			return inventory()
 		"help", "h":
@@ -58,8 +62,11 @@ func go(second_word: String) -> String:
 				+ Types.color_text(" locked", Types.COLOR_ITEM)
 				+ "."
 			)
-		var response = change_room(exit.get_other_room(current_room))
-		return "\n".join(["You go %s" % second_word, response])
+		# var response = change_room(exit.get_other_room(current_room))
+		# return "\n".join(["You go %s" % second_word, response])
+		
+		change_room(exit.get_other_room(current_room))
+		return "You go %s." % second_word
 	else:
 		return Types.color_text("You can't go there.", Types.COLOR_SYSTEM)
 	
@@ -124,7 +131,7 @@ func talk(second_word: String) -> String:
 	for npc in current_room.npcs:
 		if npc.name.to_lower() == second_word:
 			var dialog = npc.post_quest_dialog if npc.is_quest_item_received else npc.initial_dialog
-			return npc.name + ": \"" + dialog + "\""
+			return npc.name + ": \"" + Types.color_text(dialog, Types.COLOR_SPEECH) + "\""
 	
 	return Types.color_text("Not present here. Talk to someone else.", Types.COLOR_SYSTEM)
 
@@ -158,6 +165,14 @@ func give(second_word: String) -> String:
 	
 	return Types.color_text("That item belongs to no one here.", Types.COLOR_SYSTEM)
 
+func inspect(second_word):
+	pass
+
+func win(second_word):
+	if current_room.room_name.to_lower() != "shed":
+		return Types.color_text("You can’t win here yet. You need to enter the shed and try again.", Types.COLOR_SYSTEM)
+	return "YOU WON! PRESS ESC TO KYS!"
+
 func help() -> String:
 	var help_lines = [
 		"You can use these commands:",
@@ -167,8 +182,10 @@ func help() -> String:
 		"use " 		+ 	Types.color_text("[item]", Types.COLOR_ITEM),
 		"talk " 	+ 	Types.color_text("[npc]", Types.COLOR_NPC),
 		"give " 	+ 	Types.color_text("[item]", Types.COLOR_ITEM),
-		"inventory " + 	Types.color_text("[item]", Types.COLOR_SYSTEM),
-		"help " 		+ 	Types.color_text("[item]", Types.COLOR_SYSTEM)
+		"inventory",
+		"help",
+		"inspect",
+		"win :D"
 	]
 	return "\n".join(help_lines)
 

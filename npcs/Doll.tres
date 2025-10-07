@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="NPC" load_steps=2 format=3 uid="uid://c1irfwjpfm8xr"]
+
+[ext_resource type="Script" uid="uid://b2fggdx4er4xf" path="res://npcs/NPC.gd" id="1_rhwgq"]
+
+[resource]
+script = ExtResource("1_rhwgq")
+name = "Doll"
+initial_dialog = "Here's the [color=#800080]medicine[/color] for the [color=#FFA500]Nun[/color]  at the [color=#EE82EE]Graveyard[/color]"
+metadata/_custom_type_script = "uid://b2fggdx4er4xf"
