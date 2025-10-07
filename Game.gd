@@ -1,7 +1,5 @@
 extends Control
 
-const HELP = "Type 'help' anytime to see the available commands."
-
 @onready var command_manager = $CommandManager
 @onready var room_manager = $RoomManager
 @onready var player = $Player
@@ -11,10 +9,16 @@ const HELP = "Type 'help' anytime to see the available commands."
 func _ready() -> void:
 	get_window().grab_focus()
 	
+	var HELP = "Type 'help' anytime to see the available commands."
 	# first message on launch
-	game_info.create_response('Welcome!\n\n' + HELP)
+	var colored_help = Types.color_text(HELP, Types.COLOR_SYSTEM)
+	game_info.create_response('Welcome!\n\n' + colored_help)
 	
 	var starting_room = room_manager.get_child(1)
+	
+	command_manager.connect("room_changed", Callable(game_info.info, "on_change_room"))
+	command_manager.connect("room_updated", Callable(game_info.info, "on_update_room"))
+	
 	var starting_room_response = command_manager.init(starting_room, player)
 	
 	game_info.image.texture = starting_room.room_texture

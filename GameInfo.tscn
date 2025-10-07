@@ -1,18 +1,13 @@
-[gd_scene load_steps=84 format=3 uid="uid://c7jjnvvdvmbgv"]
+[gd_scene load_steps=86 format=3 uid="uid://c7jjnvvdvmbgv"]
 
 [ext_resource type="Script" uid="uid://oeqowcgo2ucj" path="res://GameInfo.gd" id="1_saxbk"]
 [ext_resource type="FontFile" uid="uid://bvnjpnifyvivx" path="res://src/fonts/MorePerfectDOSVGA.ttf" id="1_uk7sp"]
 [ext_resource type="Texture2D" uid="uid://1yre1177cqoa" path="res://src/img/screamer.jpg" id="2_saxbk"]
+[ext_resource type="PackedScene" uid="uid://b48yhl22s1qxm" path="res://History.tscn" id="2_vhnwb"]
+[ext_resource type="PackedScene" uid="uid://b1pldghthjfdr" path="res://View.tscn" id="3_fbtuw"]
+[ext_resource type="PackedScene" uid="uid://duxspgqq7qrw" path="res://Info.tscn" id="4_kluil"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wbfu4"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0.78431374, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u44n3"]
 bg_color = Color(0, 0, 0, 1)
 border_width_left = 2
 border_width_top = 2
@@ -585,54 +580,14 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="History" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+[node name="History" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_vhnwb")]
 layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_u44n3")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/History"]
+[node name="View" parent="MarginContainer/HBoxContainer" instance=ExtResource("3_fbtuw")]
 layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/History/MarginContainer"]
+[node name="Info" parent="MarginContainer/HBoxContainer" instance=ExtResource("4_kluil")]
 layout_mode = 2
-horizontal_scroll_mode = 0
-vertical_scroll_mode = 3
-
-[node name="Logs" type="VBoxContainer" parent="MarginContainer/HBoxContainer/History/MarginContainer/ScrollContainer"]
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="View" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_u44n3")
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/View"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="Image" type="TextureRect" parent="MarginContainer/HBoxContainer/View/MarginContainer"]
-layout_mode = 2
-expand_mode = 4
-stretch_mode = 6
-
-[node name="NPC" type="TextureRect" parent="MarginContainer/HBoxContainer/View/MarginContainer"]
-visible = false
-layout_mode = 2
-expand_mode = 4
-stretch_mode = 5
-
-[node name="CharacterInfo" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_u44n3")
 
 [node name="EventBoxMargin" type="MarginContainer" parent="."]
 visible = false
@@ -674,6 +629,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_qjyg3")
 layout_mode = 2
 
 [node name="Preview" type="AnimatedSprite2D" parent="EventBoxMargin/VBoxContainer/PreviewContainer/CenterContainer"]
+visible = false
 modulate = Color(0, 1.372549, 0, 1)
 position = Vector2(302.49997, 147.25)
 scale = Vector2(3.9403973, 3.3352935)

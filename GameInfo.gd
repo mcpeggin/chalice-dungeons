@@ -20,6 +20,8 @@ const LOG = preload("res://input/Log.tscn")
 @onready var event = $EventBoxMargin
 @onready var event_preview = $EventBoxMargin/VBoxContainer/PreviewContainer/CenterContainer/Preview
 
+@onready var info = $MarginContainer/HBoxContainer/Info
+
 func _ready() -> void:
 	scrollbar.changed.connect(_handle_scrollbar_changed)
 	MAX_SCROLL_LENGTH = scrollbar.max_value
