@@ -6,24 +6,24 @@ func _ready() -> void:
 	# connect_func locked || unlocked 
 	# ( default dir, exit location, alternative dir for exit)
 	
-	var houseNPC = load_npc("Doll")
+	var doll = load_npc("Doll")
 	$House.connect_exit_unlocked("east", $Forest, "forest") 
 	var medicine = load_item("Medicine")
-	$House.add_item(medicine)
-	$House.add_npc(houseNPC)
+	
+	$House.add_npc(doll)
 	
 	var shedExit = $Forest.connect_exit_locked("north", $Shed, 'shed')
 	
 	$Forest.connect_exit_unlocked("west", $House, "house")
 	$Forest.connect_exit_unlocked("south", $Graveyard, "graveyard")
 	
-	var graveyardNPC = load_npc("Nun")
-	$Graveyard.add_npc(graveyardNPC)
+	var nun = load_npc("Nun")
+	$Graveyard.add_npc(nun)
 	$Graveyard.connect_exit_unlocked("north", $Forest, "forest")
 	
 	var shedKey = load_item("ShedKey")
 	$Graveyard.add_item(shedKey)
-	graveyardNPC.quest_reward = shedKey
+	nun.quest_reward = shedKey
 	shedKey.use_value = shedExit
 
 # helpers
